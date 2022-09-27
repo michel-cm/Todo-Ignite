@@ -1,0 +1,47 @@
+.NewTask {
+  width: 46rem;
+  margin-top: -1.5rem;
+}
+
+.addTodoForm {
+  width: 100%;
+  display: flex;
+}
+
+.addTodoForm input {
+  width: 100%;
+  background: var(--gray-500);
+  border: 0;
+  color: var(--gray-100);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.addTodoForm button {
+  background: var(--blueDark);
+  border: 0;
+  color: var(--gray-100);
+  cursor: pointer;
+
+  border-radius: 8px;
+  height: 3rem;
+  width: 7rem;
+
+  font-size: 0.875rem;
+  font-weight: bold;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-left: 1rem;
+}
+
+.addTodoForm button:hover {
+  background: var(--blue);
+}
+
+.plusCircle {
+  color: var(--gray-100);
+  margin-left: 0.4rem;
+}
