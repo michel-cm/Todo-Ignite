@@ -7,7 +7,7 @@ export function NewTask() {
       <form onSubmit={() => alert("enter")} className={styles.addTodoForm}>
         <input type="text" placeholder="Adicione uma nova tarefa" />
         <button type="submit">
-          <p>Criar</p>
+          Criar
           <PlusCircle className={styles.plusCircle} size={18} />
         </button>
       </form>
