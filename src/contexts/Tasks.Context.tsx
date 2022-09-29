@@ -5,6 +5,7 @@ import { TaskType, TasksTypeProvider } from "../types/task";
 const initialValue = {
   tasks: [],
   createNewTask: () => {},
+  deleteTask: () => {},
 };
 
 export const TasksContext = createContext<TasksTypeProvider>(initialValue);
@@ -17,25 +18,25 @@ export const TasksContextProvider = ({ children }: any) => {
       id: uuidv1(),
       publishedAt: new Date(),
     },
-    {
-      title: "exemplo de task 02 !",
-      isCompleted: false,
-      id: uuidv1(),
-      publishedAt: new Date(),
-    },
   ]);
 
   function createNewTask(task: TaskType) {
     setTasks((state) => [...state, task]);
   }
 
-  function deleteTask(id: string) {}
+  function deleteTask(id: string) {
+    const tasksListWithowtDeleted = tasks.filter((task) => {
+      return task.id != id;
+    });
+    setTasks(tasksListWithowtDeleted);
+  }
 
   return (
     <TasksContext.Provider
       value={{
         tasks,
         createNewTask,
+        deleteTask
       }}
     >
       {children}

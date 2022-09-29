@@ -27,7 +27,7 @@ export function TaskTable() {
               <TaskRow
                 title={task.title}
                 isCompleted={task.isCompleted}
-                id="dsa"
+                id={task.id}
                 publishedAt={new Date()}
               />
             ))}

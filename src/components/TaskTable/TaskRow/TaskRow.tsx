@@ -2,8 +2,11 @@ import styles from "./TaskRow.module.css";
 import { Trash } from "phosphor-react";
 
 import { TaskType } from "../../../types/task";
+import { useTasks } from "../../../hooks/useTasks";
 
-export function TaskRow({ title, isCompleted }: TaskType) {
+export function TaskRow({ title, isCompleted, id }: TaskType) {
+  const { deleteTask } = useTasks();
+
   return (
     <div className={styles.taskAreaItem}>
       <div className={styles.checkBoxContent}>
@@ -17,7 +20,7 @@ export function TaskRow({ title, isCompleted }: TaskType) {
           {title}
         </p>
       </div>
-      <div className={styles.trashArea}>
+      <div onClick={() => deleteTask(id)} className={styles.trashArea}>
         <Trash size={18} />
       </div>
     </div>
