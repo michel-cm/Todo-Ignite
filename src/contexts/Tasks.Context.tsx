@@ -6,6 +6,7 @@ const initialValue = {
   tasks: [],
   createNewTask: () => {},
   deleteTask: () => {},
+  updateCheckedTask: () => {},
 };
 
 export const TasksContext = createContext<TasksTypeProvider>(initialValue);
@@ -14,7 +15,7 @@ export const TasksContextProvider = ({ children }: any) => {
   const [tasks, setTasks] = useState([
     {
       title: "exemplo de task !",
-      isCompleted: true,
+      isCompleted: false,
       id: uuidv1(),
       publishedAt: new Date(),
     },
@@ -31,12 +32,24 @@ export const TasksContextProvider = ({ children }: any) => {
     setTasks(tasksListWithowtDeleted);
   }
 
+  function updateCheckedTask(id: string) {
+    const newTasks = tasks.map((task) => {
+      if (id === task.id) {
+        return { ...task, isCompleted: !task.isCompleted };
+      } else {
+        return task;
+      }
+    });
+    setTasks(newTasks);
+  }
+
   return (
     <TasksContext.Provider
       value={{
         tasks,
         createNewTask,
-        deleteTask
+        deleteTask,
+        updateCheckedTask,
       }}
     >
       {children}

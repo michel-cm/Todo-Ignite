@@ -5,7 +5,7 @@ import { TaskType } from "../../../types/task";
 import { useTasks } from "../../../hooks/useTasks";
 
 export function TaskRow({ title, isCompleted, id }: TaskType) {
-  const { deleteTask } = useTasks();
+  const { deleteTask, updateCheckedTask } = useTasks();
 
   return (
     <div className={styles.taskAreaItem}>
@@ -15,7 +15,7 @@ export function TaskRow({ title, isCompleted, id }: TaskType) {
           type="checkbox"
           checked={isCompleted}
         />
-        <label htmlFor="checkBox"></label>
+        <label onClick={() => updateCheckedTask(id)} htmlFor="checkBox"></label>
         <p className={isCompleted ? styles.checked : styles.notChecked}>
           {title}
         </p>

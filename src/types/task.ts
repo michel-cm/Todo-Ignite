@@ -9,4 +9,5 @@ export interface TasksTypeProvider {
   tasks: TaskType[];
   createNewTask: (task: TaskType) => void;
   deleteTask: (id: string) => void;
+  updateCheckedTask: (id: string) => void;  
 }

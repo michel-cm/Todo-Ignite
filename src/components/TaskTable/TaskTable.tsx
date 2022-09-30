@@ -10,6 +10,13 @@ import { useTasks } from "../../hooks/useTasks";
 export function TaskTable() {
   const { tasks } = useTasks();
 
+  let i = 0;
+  tasks.forEach((task) => {
+    if (task.isCompleted === true) {
+      i++;
+    }
+  });
+
   return (
     <div className={styles.taskTable}>
       <div className={styles.infoTasks}>
@@ -17,7 +24,10 @@ export function TaskTable() {
           Tarefas criadas<span> {tasks.length}</span>
         </p>
         <p className={styles.tasksCompleted}>
-          Concluídas<span> 0</span>
+          Concluídas
+          <span>
+            {i} de {tasks.length}
+          </span>
         </p>
       </div>
       <div className={styles.tasksArea}>
