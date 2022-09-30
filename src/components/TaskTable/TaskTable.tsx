@@ -25,9 +25,7 @@ export function TaskTable() {
         </p>
         <p className={styles.tasksCompleted}>
           Concluídas
-          <span>
-            {i} de {tasks.length}
-          </span>
+          <span>{tasks.length > 0 ? `${i} de ${tasks.length}` : "0"}</span>
         </p>
       </div>
       <div className={styles.tasksArea}>
